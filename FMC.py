@@ -243,7 +243,7 @@ if sys.version_info[0] == 2:
     data = genfromtxt(args.infile, dtype=None)
 
 elif sys.version_info[0] == 3:
-    data = genfromtxt(args.infile, dtype=None, encoding=None)
+    data = [(149.27, 44.12, 28, 1.01, -0.47, -0.54, 1.68, 1.85, -0.48, 27, 'X', 'Y', '032378C')]
 
 n_events = data.size
 if n_events == 1:
@@ -297,7 +297,7 @@ data1_all = zeros((n_events, 1))
 
 # false clustID to initialize the variable
 clustID = 0
-
+print(n_events)
 for row in range(n_events):
     if args.i[0] == 'CMT':
         if fields != 13:
@@ -311,7 +311,7 @@ for row in range(n_events):
                         '\rProcessing ' + str(
                             row + 1) + '/' + str(
                                 n_events) + ' focal mechanisms.'))
-
+        print(data)
         lon = data[row][0]
         lat = data[row][1]
         dep = data[row][2]
@@ -407,13 +407,13 @@ for row in range(n_events):
                         '\rProcessing ' + str(
                             row + 1) + '/' + str(
                                 n_events) + ' focal mechanisms.'))
-
         lon = data[row][0]
         lat = data[row][1]
         dep = data[row][2]
         posX = data[row][7]
         posY = data[row][8]
         ID = data[row][9]
+        #print(lon, lat, dep, posX, posY, ID)
 
         strA = (data[row][3])
         dipA = (data[row][4])
